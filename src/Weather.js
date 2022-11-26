@@ -51,15 +51,7 @@ export default function Weather() {
                   <div className="d-flex justify-content-center weather-temperature">
                     <div>
                       <strong>{weatherData.temperature}</strong>
-                      <span className="units">
-                        <a href="#" className="active">
-                          °F
-                        </a>
-                        |
-                        <a href="#" className="selected">
-                          °C
-                        </a>
-                      </span>
+                      <span className="units">°F | °C</span>
                     </div>
                   </div>
                   <ul>
@@ -83,6 +75,7 @@ export default function Weather() {
               className="open-source"
               href="https://github.com/LALA3194/Final-Weather-App"
               target="_blank"
+              rel="noreferrer"
             >
               Open-source code
             </a>
@@ -93,6 +86,7 @@ export default function Weather() {
                 className="icon-link"
                 href="https://icons8.com/icon/set/weather/stickers"
                 target="_blank"
+                rel="noreferrer"
               >
                 icons8
               </a>
