@@ -22,7 +22,7 @@ export default function Weather(props) {
   }
   function search() {
     const apiKey = "481c6a3fa86a825atc87349b7401ae6o";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -66,6 +66,9 @@ export default function Weather(props) {
                 <div className="col">
                   <div className="today-weather">
                     <h1>{weatherData.city}</h1>
+                    <h3>
+                      <FormattedDate date={weatherData.date} />
+                    </h3>
                     <img
                       src={weatherData.imgUrl}
                       alt={weatherData.description}
@@ -74,19 +77,16 @@ export default function Weather(props) {
                     <h5 className="description">{weatherData.description}</h5>
                     <br />
                     <div className="d-flex justify-content-center weather-temperature">
-                      <WeatherUnit celsius={props.data.temperature} />
+                      <WeatherUnit fahrenheit={weatherData.temperature} />
                     </div>
                     <ul>
                       <li>
                         Humidity: <span>{weatherData.humidity}</span>%
                       </li>
                       <li>
-                        Wind: <span>{Math.round(weatherData.wind)}</span> m/h
+                        Wind: <span>{Math.round(weatherData.wind)}</span> mph
                       </li>
                     </ul>
-                    <h3>
-                      <FormattedDate date={weatherData.date} />
-                    </h3>
                   </div>
                 </div>
                 <div className="col">
