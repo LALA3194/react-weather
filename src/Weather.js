@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherUnit from "./WeatherUnit";
 import axios from "axios";
 import "./Weather.css";
 
@@ -73,10 +74,7 @@ export default function Weather(props) {
                     <h5 className="description">{weatherData.description}</h5>
                     <br />
                     <div className="d-flex justify-content-center weather-temperature">
-                      <div>
-                        <strong>{Math.round(weatherData.temperature)}</strong>
-                        <span className="units">°F | °C</span>
-                      </div>
+                      <WeatherUnit celsius={props.data.temperature} />
                     </div>
                     <ul>
                       <li>
