@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherUnit from "./WeatherUnit";
+import WeatherIcon from "./WeatherIcon";
 import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
@@ -9,7 +10,6 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
@@ -70,11 +70,12 @@ export default function Weather(props) {
                     <h3>
                       <FormattedDate date={weatherData.date} />
                     </h3>
-                    <img
-                      src={weatherData.imgUrl}
+                    <WeatherIcon
+                      code={weatherData.imgUrl}
                       alt={weatherData.description}
                       className="main-icon"
                     />
+
                     <h5 className="description">{weatherData.description}</h5>
                     <br />
                     <div className="d-flex justify-content-center weather-temperature">
