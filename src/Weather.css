@@ -67,8 +67,8 @@ App {
   padding: 20px;
   background: #9fd3c7c0;
 }
-.today-weather .main-icon {
-  max-width: 100px;
+.today-weather img {
+  width: 100px;
 }
 .today-weather .description {
   text-transform: capitalize;
@@ -104,11 +104,13 @@ App {
   text-align: center;
 }
 .weather-forecast {
+  text-align: left;
   width: 250px;
-  height: 60px;
+  height: 65px;
   background: #9fd3c7c0;
+  border: 1px solid #dadde1;
   border-radius: 8px;
-  padding: 8px 32px;
+  padding: 8px 25px;
   display: flex;
   flex-direction: row;
   margin: 10px;

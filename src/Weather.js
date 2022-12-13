@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherUnit from "./WeatherUnit";
-import WeatherIcon from "./WeatherIcon";
+
 import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
@@ -70,15 +70,17 @@ export default function Weather(props) {
                     <h3>
                       <FormattedDate date={weatherData.date} />
                     </h3>
-                    <WeatherIcon
-                      code={weatherData.imgUrl}
+                    <img
+                      src={weatherData.imgUrl}
                       alt={weatherData.description}
                       className="main-icon"
                     />
 
-                    <h5 className="description">{weatherData.description}</h5>
-                    <br />
-                    <div className="d-flex justify-content-center weather-temperature">
+                    <h5 className="description mb-3">
+                      {weatherData.description}
+                    </h5>
+
+                    <div className="d-flex justify-content-center weather-temperature mb-3">
                       <WeatherUnit fahrenheit={weatherData.temperature} />
                     </div>
                     <ul>
@@ -92,7 +94,7 @@ export default function Weather(props) {
                   </div>
                 </div>
                 <div className="col">
-                  <WeatherForecast />
+                  <WeatherForecast city={weatherData.city} />
                 </div>
               </div>
             </div>
