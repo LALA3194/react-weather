@@ -32,7 +32,7 @@ export default function WeatherForecast(props) {
     );
   } else {
     let apiKey = "481c6a3fa86a825atc87349b7401ae6o";
-    let city = "bogota";
+    let city = props.city.city;
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
     return null;
